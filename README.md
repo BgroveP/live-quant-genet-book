@@ -1,1 +1,1 @@
-# live-quant-genet-book
+# The living quantitative genetics book
