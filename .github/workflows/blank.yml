@@ -16,10 +16,10 @@ jobs:
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: "./the book.tex"
+        root_file: ./book.tex
 
     - name: Upload PDF
       uses: actions/upload-artifact@v4
       with:
         name: PDF
-        path: "./the book.pdf"
+        path: ./book.pdf
