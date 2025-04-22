@@ -12,12 +12,16 @@ jobs:
     container:
       image: ghcr.io/moderncv/debian-texlive-docker:main
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Build PDF
-        run: latexmk ./'the book'.tex
-      - name: Upload PDF
-        uses: actions/upload-artifact@v3
-        with:
-          name: thesis.pdf
-          path: ./book.pdf
+    - name: Set up Git repository
+      uses: actions/checkout@v2
+
+    - name: Compile LaTeX document
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: ./'the book'.tex # Change this to your main TeX file
+
+    - name: Upload PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: PDF
+        path: main.pdf # Change this to the output PDF file name
