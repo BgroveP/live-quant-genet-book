@@ -1,27 +1,28 @@
-name: "Build PDF"
+name: Build LaTeX document
 
 on:
   push:
-    branches: [ main ]
+    paths:
+      - '**.tex'
   pull_request:
-    branches: [ main ]
+    paths:
+      - '**.tex'
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/moderncv/debian-texlive-docker:main
+
     steps:
     - name: Set up Git repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Compile LaTeX document
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: ./'the book'.tex # Change this to your main TeX file
+        root_file: the book.tex # Updated to your main TeX file name
 
     - name: Upload PDF
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: PDF
-        path: main.pdf # Change this to the output PDF file name
+        path: the book.pdf # Updated to the output PDF file name
