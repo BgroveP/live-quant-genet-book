@@ -1,7 +1,6 @@
 name: Build LaTeX document
 
 on:
-  push:
     branches:
       - main
     paths:
