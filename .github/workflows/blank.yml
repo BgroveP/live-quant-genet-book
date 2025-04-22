@@ -21,7 +21,7 @@ jobs:
         root_file: "./the book.tex"
 
     - name: Upload PDF
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: PDF
         path: "./the book.pdf"
